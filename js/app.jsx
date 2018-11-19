@@ -270,7 +270,20 @@ document.addEventListener('DOMContentLoaded', function(){
 			return status;
 		}
 
-		handleSignUp = (event) => {
+		handleRemoveAccount = () => {
+			if ( typeof this.props.removeAccount === 'function' ){
+				this.props.removeAccount();
+			}
+			
+		}
+
+		handleCancel = () => {
+			if ( typeof this.props.closeWindow === 'function' ){
+				this.props.closeWindow();
+			}
+		}
+
+		handleSaveCreate = () => {
 			let status = true;
 			if (this.state.login.length == 0) {
 				status = false;
@@ -319,18 +332,27 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		render() {
 			let inputLogin;
+			let buttons;
 			if (this.props.edit) {
 				inputLogin= 
 					<input type="text" id="login" className="inputSingup" disabled="disabled"
 								value={this.state.login}
 								onChange={this.handleLogin}
-					/>
+					/>;
+				buttons= 
+					<div className="signUpForms">
+						<button onClick={this.handleRemoveAccount} className="buttonCancelRemove">Remove account</button>
+						<button onClick={this.handleCancel} className="buttonCancelRemove">Cancel</button>
+						<button onClick={this.handleSaveCreate} className="buttonCancelRemove">{this.props.buttonText}</button>
+					</div>;
 			} else {
 				inputLogin= 
 					<input type="text" id="login" className="inputSingup"
 								value={this.state.login}
 								onChange={this.handleLogin}
-					/>
+					/>;
+				buttons=
+				<button onClick={this.handleSaveCreate} className="buttonSignUp">{this.props.buttonText}</button>;
 			}
 
 			return(
@@ -433,7 +455,8 @@ document.addEventListener('DOMContentLoaded', function(){
 							</form>
 						</section>
 					</div>
-					<button onClick={this.handleSignUp} className="buttonSignUp">{this.props.buttonText}</button>
+					{buttons}
+					{/* <button onClick={this.handleSaveCreate} className="buttonSignUp">{this.props.buttonText}</button> */}
 				</div>
 			)
 		}
@@ -543,6 +566,23 @@ document.addEventListener('DOMContentLoaded', function(){
 			})
 		}
 
+		removeAccount = () => {
+			if (confirm("Are You sure?")) {
+				if (confirm("Really?")) {
+					localStorage.removeItem(this.state.login);
+					setTimeout("location.href='#/';",500);
+				} else {					
+				}
+			} else {					
+			}
+		}
+
+		closeWindow = () => {
+			this.setState({
+				showEditAccount: false
+			});
+		}
+
 		returnData = (data) => {
 			this.setState({
 				password: data.password,
@@ -556,7 +596,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				FPA: parseInt(data.fpa),
 				DL24: parseInt(data.dl24),			
 				showEditAccount: false
-			})
+			});
 		}
 
 		handleLogout = () => {
@@ -692,7 +732,6 @@ document.addEventListener('DOMContentLoaded', function(){
 					});
 					break;
 				default:
-					console.log('wybrano INNY');
 			}
 			this.setState({
 				showBuySell: false
@@ -735,6 +774,8 @@ document.addEventListener('DOMContentLoaded', function(){
 										fpa={this.state.FPA}
 										dl24={this.state.DL24}
 										edit={true}
+										removeAccount={this.removeAccount}
+										closeWindow={this.closeWindow}
 										returnData={this.returnData}
 										buttonText={'Save changes'}
 									/>
