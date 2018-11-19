@@ -4,24 +4,29 @@
     box-sizing: border-box;
     font-family: 'Raleway', Arial, sans-serif;
 }
+
 .container{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100vw;
 }
+
 header{
     align-self: flex-end;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 }
+
 .header{
     margin: 20px 20px 0 0;
 }
+
 a{
     font-weight: bold;
 }
+
 .mainSignin{
     display: flex;
     flex-direction: column;
@@ -30,29 +35,39 @@ a{
     margin-top: 150px;
     height: 100%;    
 }
+
 .title{
     margin-bottom: 20px;
     font-size: 2.2em
 }
+
 .form{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     margin-top: 15px;
 }
-.inputSingin, .inputSingup, .button{
+
+.inputSingin, .inputSingup, .buttonSignIn, .buttonSignUp{
     width: 300px;
     height: 35px;
     font-size: 16px;
 }
+
 ::placeholder {
     opacity: 0.4; 
     font-size: 15px;
     padding-left: 10px;
 }
-.inputSingin, .button{
+
+.inputSingin, .buttonSignIn{
     margin-top: 20px;
 }
+
+.buttonSignUp {
+    margin-top: 30px;
+}
+
 .mainSignup{
     display: flex;
     flex-direction: column;
@@ -62,42 +77,65 @@ a{
     margin-bottom: 50px;
     height: 100%;     
 }
+
+.formContainer{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.signUpForms{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 700px;
+}
+
 .label{
     margin-bottom: 5px;
     font-size: 15px;
     font-weight: bold;
+    color: #585858;
 }
+
 h3{
-    margin-top: 40px;
+    margin-top: 30px;
 }
+
 .alert{
     font-size: 12px;
     font-weight: bold;
-    color: #ff0000; 
+    color: #ff0000;  
     margin-top: 5px;   
 }
+
 .nonActive{
     display: none;
 }
+
 .alert2{
-    color: #ff0000;   
+    color: #ff0000;    
 }
+
 .flexColumn{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-margin-top: 15vh;
+    margin-top: 150px;
     height: 100%;  
 }
+
 .flexRow{
     display: flex;
     flex-direction: row;
 }
+
 .notFound{
     font-size: 1.5em;
-    margin-top: 1em;
+    margin-top: 20px;
 }
+
 .mainHeader{
     display: flex;
     flex-direction: row;
@@ -107,12 +145,14 @@ margin-top: 15vh;
     width: 1200px;
     height: 80px;
     margin: 0 auto;
-margin-top: 30px;
-font-size: 1.2em;
+    margin-top: 30px;
+    font-size: 1.2em;
 }
+
 .mainHeaderTitle{
     margin-left: 20px;
 }
+
 .mainHeaderMenu{
     display: flex;
     flex-direction: row;
@@ -125,6 +165,7 @@ font-size: 1.2em;
         }
     }
 }
+
 .editButton, .logoutButton{
     width: 30px;
     height: 30px;
@@ -132,68 +173,77 @@ font-size: 1.2em;
     background-size: contain;
     background-position: center;
 }
+
 .editButton:hover, .logoutButton:hover{
     background-color: #F5F5F5;
 }
+
 .editButton{
     background-image: url("../images/settings.png");
 } 
+
 .logoutButton{
     background-image: url("../images/logout.png");
 }
-    .sectionContainer{
+
+.sectionContainer{
     width: 1200px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0 auto;
     margin-top: 30px;
     font-size: 1.2em;
 }
+
 .leftTable, .rightTable{
     width: 585px;
     table-layout: fixed; 
 }
+
 .tableTitle{
     font-size: 1.4em;
     height: 70px;
 }
+
 table, th, td{
     border: 2px solid #808080;
     border-collapse: collapse;
-   } 
+} 
    
 th,td{
     text-align: left;
     padding-left: 5px;
     height: 55px;
     }
+
 th{
     background-color: #E8E8E8;
 }
+
 td{
     span{
         font-weight: bold;
         font-size: 1.3em;
     }
 }
+
 .cellButtons {
     text-align: center;
     padding-left: 0;
 }
+
 .buttonBuySell{
     width: 90px;
     height: 30px;
-    border: 1px solid #808080;
-    background-color: #F2F0EF;
     font-size: 14px;
     font-weight: 600;
     color: #404040;
+}
+
+.buttonDistance{
     margin-left: 15px;
 }
-.buttonBuySell:hover{
-    background-color: #E8E8E8;
-}
+
 .dataTime{
     font-size: 14px; 
     span{
@@ -201,6 +251,7 @@ td{
         font-size: 14px; 
     } 
 }
+
 .buySell{
     display: flex;
     flex-direction: column;
@@ -216,16 +267,32 @@ td{
     top: 30%;
     z-index: 3;
 }
+
 .inputBuySell{
     width: 398px;
     height: 35px;
     font-size: 16px;
 }
+
 .buttons{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 }
+
 .bold{
     font-weight: bold;
+}
+
+.editAccount{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F5F5F5;
+    border: 1px solid #808080;
+    box-shadow: 0 0 7px #888;
+    padding: 25px;
+    position: fixed;
+    top: 2%;
+    z-index: 3;
 }
